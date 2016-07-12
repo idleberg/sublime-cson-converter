@@ -1,0 +1,14 @@
+[
+  {
+    "command": "toggle_object_notation",
+    "caption": "Convert: Toggle Object Notation (CSON\u27f7JSON)"
+  },
+  {
+    "command": "cson_to_json",
+    "caption": "Convert: CSON to JSON"
+  },
+  {
+    "command": "json_to_cson",
+    "caption": "Convert: JSON to CSON"
+  }
+]

@@ -33,10 +33,12 @@ The [Command Palette](http://docs.sublimetext.info/en/latest/reference/command_p
 
 ### Keyboard Shortcuts
 
+*The following examples all use the macOS shortcuts, for Linux or Windows use <kbd>Ctrl</kbd>+<kbd>Alt</kbd> rather than j<kbd>Cmd</kbd>+<kbd>Alt</kbd>.*
+
 Memorizing the keyboard shortcuts for conversion is easy. Just think of <kbd>C</kbd> for CSON and <kbd>J</kbd> for JSON:
 
-* CSON to JSON (or C to J): <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>
-* JSON to CSON (or J to C): <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>
+* CSON to JSON (or C to J): <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>, <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>
+* JSON to CSON (or J to C): <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>, <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>
 
 # License
 

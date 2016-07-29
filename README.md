@@ -33,7 +33,7 @@ The [Command Palette](http://docs.sublimetext.info/en/latest/reference/command_p
 
 ### Keyboard Shortcuts
 
-*The following examples all use the macOS shortcuts, for Linux or Windows use <kbd>Ctrl</kbd>+<kbd>Alt</kbd> rather than j<kbd>Cmd</kbd>+<kbd>Alt</kbd>.*
+*The following examples all use the macOS shortcuts, for Linux or Windows use <kbd>Ctrl</kbd>+<kbd>Alt</kbd> rather than <kbd>Cmd</kbd>+<kbd>Alt</kbd>.*
 
 Memorizing the keyboard shortcuts for conversion is easy. Just think of <kbd>C</kbd> for CSON and <kbd>J</kbd> for JSON:
 

@@ -1,13 +1,13 @@
 [
   {
     "keys": [
-      "ctrl+alt+c", "ctrl+alt+j"
+      "super+alt+c", "super+alt+j"
     ],
     "command": "cson_to_json"
   },
   {
     "keys": [
-      "ctrl+alt+j", "ctrl+alt+c"
+      "super+alt+j", "super+alt+c"
     ],
     "command": "json_to_cson"
   }

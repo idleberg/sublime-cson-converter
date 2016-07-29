@@ -27,9 +27,16 @@ The [Command Palette](http://docs.sublimetext.info/en/latest/reference/command_p
 
 * Convert: CSON to JSON
 * Convert: JSON to CSON
-* Convert: Toggle Object Notation (CSON⟷JSON)"
+* Convert: Toggle Object Notation (CSON&#x27F7;JSON)
 
 **Note:** Since automatic conversion is based on scope, make sure the a compatible CoffeeScript package (e.g. [Better CoffeeScript](https://packagecontrol.io/packages/Better%20CoffeeScript)) is installed as well.
+
+### Keyboard Shortcuts
+
+Memorizing the keyboard shortcuts for conversion is easy. Just think of <kbd>C</kbd> for CSON and <kbd>J</kbd> for JSON:
+
+* CSON to JSON (or C to J): <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>
+* JSON to CSON (or J to C): <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>
 
 # License
 

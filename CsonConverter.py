@@ -67,18 +67,21 @@ class JsonToCsonCommand(sublime_plugin.TextCommand):
     def get_package(self):
         import os
 
+        # package locations
+        locations = [sublime.installed_packages_path(), sublime.packages_path()]
+
         # supported packages
-        packages = ["Better CoffeeScript", "CoffeeScript"]
+        packages = ["Better CoffeeScript", "CoffeeScript", "IcedCoffeeScript"]
 
-        # iterate over packages installed with Package Control
-        for package in packages:
-            if os.path.isfile(sublime.installed_packages_path() + "/" + package + ".sublime-package") is True:
-                return "Packages/" + package + "/CoffeeScript.tmLanguage"
-
-        # still found nothing, let's iterate over manually installed packages  
-        for package in packages:
-            if os.path.isdir(sublime.packages_path() + "/" + package) is True:
-                return "Packages/" + package + "/CoffeeScript.tmLanguage"
+        # iterate over packages locations
+        for location in locations:
+            # iterate over packages installed with Package Control
+            for package in packages:
+                if os.path.isfile(location + "/" + package + ".sublime-package") is True:
+                    if package is "IcedCoffeeScript":
+                        return "Packages/IcedCoffeeScript/Syntaxes/IcedCoffeeScript.tmLanguage"
+                    else:
+                        return "Packages/" + package + "/CoffeeScript.tmLanguage"
 
         sublime.error_message("CSON Converter: Automatic conversion requires a supported CoffeeScript package to be installed. See README.md for details!")
         return False

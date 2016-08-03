@@ -29,7 +29,7 @@ The [Command Palette](http://docs.sublimetext.info/en/latest/reference/command_p
 * Convert: JSON to CSON
 * Convert: Toggle Object Notation (CSON&#x27F7;JSON)
 
-**Note:** Since automatic conversion is based on scope, make sure the a compatible CoffeeScript package (e.g. [Better CoffeeScript](https://packagecontrol.io/packages/Better%20CoffeeScript)) is installed as well.
+**Note:** Since automatic conversion is based on scope, make sure the a supported CoffeeScript package is installed as well. Using [Better CoffeeScript](https://packagecontrol.io/packages/Better%20CoffeeScript) is recommended, though [CoffeeScript](https://packagecontrol.io/packages/CoffeeScript) and [IcedCoffeeScript](https://packagecontrol.io/packages/IcedCoffeeScript) are also supported.
 
 ### Keyboard Shortcuts
 

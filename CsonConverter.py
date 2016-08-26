@@ -1,6 +1,9 @@
 import sublime, sublime_plugin
 import cson, json
 
+def loadConfig():
+    return sublime.load_settings('CSON Converter.sublime-settings');
+
 # Automatic conversion
 class ToggleObjectNotationCommand(sublime_plugin.TextCommand):
 
@@ -30,9 +33,12 @@ class CsonToJsonCommand(sublime_plugin.TextCommand):
             sublime.error_message("CSON Converter: Invalid CSON, aborting conversion")
             return
 
+        sort_keys = loadConfig().get("jsonSortKeys") or False
+        indent = loadConfig().get("jsonIndent") or 2
+
         # write converted data to view
         selection = sublime.Region(0, self.view.size())
-        self.view.replace(edit, selection, json.dumps(data, sort_keys=False, indent=2, separators=(',', ': ')))
+        self.view.replace(edit, selection, json.dumps(data, sort_keys=sort_keys, indent=indent, separators=(',', ': ')))
 
         # set syntax to JSON
         if sublime.version() >= "3103":
@@ -55,9 +61,12 @@ class JsonToCsonCommand(sublime_plugin.TextCommand):
             sublime.error_message("CSON Converter: Invalid JSON, aborting conversion")
             return
 
+        sort_keys = loadConfig().get("jsonSortKeys") or True
+        indent = loadConfig().get("jsonIndent") or 2
+
         # write converted data to view
         selection = sublime.Region(0, self.view.size())
-        self.view.replace(edit, selection, cson.dumps(data, sort_keys=False, indent=2))
+        self.view.replace(edit, selection, cson.dumps(data, sort_keys=sort_keys, indent=indent))
 
         # set syntax to CSON, requires supported CoffeeScript package
         package = self.get_package()

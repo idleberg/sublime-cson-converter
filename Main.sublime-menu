@@ -32,7 +32,7 @@
               {
                 "command": "open_file",
                 "args": {
-                  "file": "${packages}/CSON Converter/Default.sublime-keymap",
+                  "file": "${packages}/CSON Converter/Default.sublime-keymap"
                 },
                 "caption": "Key Bindings – Default"
               },

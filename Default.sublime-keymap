@@ -3,12 +3,26 @@
     "keys": [
       "ctrl+alt+c", "ctrl+alt+j"
     ],
-    "command": "cson_to_json"
+    "command": "cson_to_json",
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "source.coffee"
+      }
+    ]
   },
   {
     "keys": [
       "ctrl+alt+j", "ctrl+alt+c"
     ],
-    "command": "json_to_cson"
+    "command": "json_to_cson",
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "source.json"
+      }
+    ]
   }
 ]

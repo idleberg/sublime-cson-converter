@@ -1,0 +1,9 @@
+{
+    // CSON Options
+    "csonSortKeys": true,
+    "csonIndent": 2,
+
+    // JSON Options
+    "jsonSortKeys": false,
+    "jsonIndent": 2
+}

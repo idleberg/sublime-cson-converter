@@ -40,6 +40,13 @@ Memorizing the keyboard shortcuts for conversion is easy. Just think of <kbd>C</
 * CSON to JSON (or C to J): <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>, <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>
 * JSON to CSON (or J to C): <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>, <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>
 
+### Settings
+
+Some of the default conversion settings can be modified from the *Package Settings* menu:
+
+* Indentation level (`int`)
+* Sort keys (`boolean`)
+
 # License
 
 This work is licensed under the [The MIT License](LICENSE).

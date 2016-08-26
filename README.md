@@ -3,6 +3,7 @@
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![Package Control](https://packagecontrol.herokuapp.com/downloads/CSON%20Converter.svg?style=flat-square)](https://packagecontrol.io/packages/CSON%20Converter)
 [![GitHub release](https://img.shields.io/github/release/idleberg/sublime-cson-converter.svg?style=flat-square)](https://github.com/idleberg/sublime-cson-converter/releases)
+[![Travis](https://img.shields.io/travis/idleberg/sublime-cson-converter.svg?style=flat-square)](https://travis-ci.org/idleberg/sublime-cson-converter)
 
 Convert JSON to CSON, and vice versa.
 

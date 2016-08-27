@@ -16,7 +16,7 @@ class ToggleObjectNotationCommand(sublime_plugin.TextCommand):
         elif "source.coffee" in scope:
             self.view.run_command('cson_to_json')
         else:
-            sublime.error_message("CSON Converter: Unsupported scope, can't toggle object notation automatically")
+            sublime.error_message("CSON Converter\n\nUnsupported scope, can't toggle object notation automatically")
 
 # Convert CSON to JSON
 class CsonToJsonCommand(sublime_plugin.TextCommand):
@@ -30,7 +30,7 @@ class CsonToJsonCommand(sublime_plugin.TextCommand):
         try:
             data = cson.loads(selection)
         except:
-            sublime.error_message("CSON Converter: Invalid CSON, aborting conversion")
+            sublime.error_message("CSON Converter\n\nInvalid CSON, aborting conversion")
             return
 
         sort_keys = loadConfig().get("jsonSortKeys") or False
@@ -58,7 +58,7 @@ class JsonToCsonCommand(sublime_plugin.TextCommand):
         try:
             data = json.loads(selection)
         except:
-            sublime.error_message("CSON Converter: Invalid JSON, aborting conversion")
+            sublime.error_message("CSON Converter\n\nInvalid JSON, aborting conversion")
             return
 
         sort_keys = loadConfig().get("jsonSortKeys") or True
@@ -92,5 +92,5 @@ class JsonToCsonCommand(sublime_plugin.TextCommand):
                     else:
                         return "Packages/" + package + "/CoffeeScript.tmLanguage"
 
-        sublime.error_message("CSON Converter: Automatic conversion requires a supported CoffeeScript package to be installed. See README.md for details!")
+        sublime.error_message("CSON Converter\n\nAutomatic conversion requires a supported CoffeeScript package to be installed. See README.md for details!")
         return False

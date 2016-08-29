@@ -23,6 +23,12 @@ class CsonToJsonCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
 
+        scope = self.view.scope_name(self.view.sel()[0].a)
+        if "source.json" in scope \
+        or scope.startswith('source.sublime'):
+            print("CSON Converter: No action required")
+            return
+
         # read data from view
         selection = self.view.substr(sublime.Region(0, self.view.size()))
 

@@ -80,23 +80,30 @@ class JsonToCsonCommand(sublime_plugin.TextCommand):
             self.view.set_syntax_file(package)
 
     def get_package(self):
-        import os
+        def get_coffee():
+            import os
 
-        # package locations
-        locations = [sublime.installed_packages_path(), sublime.packages_path()]
+            # package locations
+            locations = [sublime.installed_packages_path(), sublime.packages_path()]
 
-        # supported packages
-        packages = ["Better CoffeeScript", "CoffeeScript", "IcedCoffeeScript"]
+            # supported packages
+            packages = ["Better CoffeeScript", "CoffeeScript", "IcedCoffeeScript", "Mongoose CoffeeScript"]
 
-        # iterate over packages locations
-        for location in locations:
-            # iterate over packages installed with Package Control
-            for package in packages:
-                if os.path.isfile(location + "/" + package + ".sublime-package") is True:
-                    if package is "IcedCoffeeScript":
-                        return "Packages/IcedCoffeeScript/Syntaxes/IcedCoffeeScript.tmLanguage"
-                    else:
-                        return "Packages/" + package + "/CoffeeScript.tmLanguage"
+            # iterate over packages locations
+            for location in locations:
+                # iterate over packages installed with Package Control
+                for package in packages:
+                    # is "ignored_package"?
+                    if isIgnored(package) == True:
+                        continue
 
-        sublime.error_message("CSON Converter\n\nAutomatic conversion requires a supported CoffeeScript package to be installed. See README.md for details!")
-        return False
+                    if os.path.isfile(location + "/" + package + ".sublime-package") is True:
+                        if package is "IcedCoffeeScript":
+                            return "Packages/IcedCoffeeScript/Syntaxes/IcedCoffeeScript.tmLanguage"
+                        elif package is "Mongoose CoffeeScript":
+                            return "Packages/Mongoose CoffeeScript/CoffeeScript.tmLanguage"
+                        else:
+                            return "Packages/" + package + "/CoffeeScript.tmLanguage"
+
+            sublime.error_message("CSON Converter\n\nAutomatic conversion requires a supported CoffeeScript package to be installed")
+            return False

@@ -4,6 +4,6 @@
     "csonIndent": 2,
 
     // JSON Options
-    "jsonSortKeys": false,
+    "jsonSortKeys": true,
     "jsonIndent": 2
 }

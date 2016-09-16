@@ -39,7 +39,7 @@ class CsonToJsonCommand(sublime_plugin.TextCommand):
             sublime.error_message("CSON Converter\n\nInvalid CSON, aborting conversion")
             return
 
-        sort_keys = loadConfig().get("jsonSortKeys") or False
+        sort_keys = loadConfig().get("jsonSortKeys") or True
         indent = loadConfig().get("jsonIndent") or 2
 
         # write converted data to view
@@ -67,8 +67,8 @@ class JsonToCsonCommand(sublime_plugin.TextCommand):
             sublime.error_message("CSON Converter\n\nInvalid JSON, aborting conversion")
             return
 
-        sort_keys = loadConfig().get("jsonSortKeys") or True
-        indent = loadConfig().get("jsonIndent") or 2
+        sort_keys = loadConfig().get("csonSortKeys") or True
+        indent = loadConfig().get("csonIndent") or 2
 
         # write converted data to view
         selection = sublime.Region(0, self.view.size())

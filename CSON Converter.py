@@ -74,36 +74,37 @@ class JsonToCsonCommand(sublime_plugin.TextCommand):
         selection = sublime.Region(0, self.view.size())
         self.view.replace(edit, selection, cson.dumps(data, sort_keys=sort_keys, indent=indent))
 
-        # set syntax to CSON, requires supported CoffeeScript package
-        package = self.get_package()
-        if package is not False:
-            self.view.set_syntax_file(package)
+        self.set_coffee()
 
-    def get_package(self):
-        def get_coffee():
-            import os
+    def set_coffee(this):
+        """Set syntax to CSON, if supported CoffeeScript package was found"""
+        import os
 
-            # package locations
-            locations = [sublime.installed_packages_path(), sublime.packages_path()]
+        # package locations
+        locations = [sublime.installed_packages_path(), sublime.packages_path()]
 
-            # supported packages
-            packages = ["Better CoffeeScript", "CoffeeScript", "IcedCoffeeScript", "Mongoose CoffeeScript"]
+        # supported packages
+        packages = ["Better CoffeeScript", "CoffeeScript", "IcedCoffeeScript", "Mongoose CoffeeScript"]
 
-            # iterate over packages locations
-            for location in locations:
-                # iterate over packages installed with Package Control
-                for package in packages:
-                    # is "ignored_package"?
-                    if isIgnored(package) == True:
-                        continue
+        # iterate over packages locations
+        for location in locations:
+            # iterate over packages installed with Package Control
+            for package in packages:
+                # is "ignored_package"?
+                settings = sublime.load_settings('Preferences.sublime-settings').get("ignored_packages")
+                if package in settings:
+                    continue
 
-                    if os.path.isfile(location + "/" + package + ".sublime-package") is True:
-                        if package is "IcedCoffeeScript":
-                            return "Packages/IcedCoffeeScript/Syntaxes/IcedCoffeeScript.tmLanguage"
-                        elif package is "Mongoose CoffeeScript":
-                            return "Packages/Mongoose CoffeeScript/CoffeeScript.tmLanguage"
-                        else:
-                            return "Packages/" + package + "/CoffeeScript.tmLanguage"
+                if os.path.isfile(location + "/" + package + ".sublime-package") is True:
+                    if package is "IcedCoffeeScript":
+                        this.view.set_syntax_file("Packages/IcedCoffeeScript/Syntaxes/IcedCoffeeScript.tmLanguage")
+                        return True
+                    elif package is "Mongoose CoffeeScript":
+                        this.view.set_syntax_file("Packages/Mongoose CoffeeScript/CoffeeScript.tmLanguage")
+                        return True
+                    else:
+                        this.view.set_syntax_file("Packages/" + package + "/CoffeeScript.tmLanguage")
+                        return True
 
-            sublime.error_message("CSON Converter\n\nAutomatic conversion requires a supported CoffeeScript package to be installed")
-            return False
+        sublime.error_message("Atomizr\n\nAutomatic conversion requires a supported CoffeeScript package to be installed")
+        return False

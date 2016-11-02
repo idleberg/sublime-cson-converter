@@ -5,7 +5,7 @@
 [![GitHub release](https://img.shields.io/github/release/idleberg/sublime-cson-converter.svg?style=flat-square)](https://github.com/idleberg/sublime-cson-converter/releases)
 [![Travis](https://img.shields.io/travis/idleberg/sublime-cson-converter.svg?style=flat-square)](https://travis-ci.org/idleberg/sublime-cson-converter)
 
-Convert JSON to CSON, and vice versa.
+Converts CSON, JSON and XML
 
 ## Installation
 
@@ -27,19 +27,28 @@ Since [package dependencies](https://packagecontrol.io/docs/dependencies) are ha
 The [Command Palette](http://docs.sublimetext.info/en/latest/reference/command_palette.html) currently offers the following commands:
 
 * Convert: CSON to JSON
+* Convert: CSON to XML
 * Convert: JSON to CSON
-* Convert: Toggle Object Notation (CSON&#x27F7;JSON)
+* Convert: JSON to XML
+* Convert: XML to CSON
+* Convert: XML to JSON
 
-**Note:** Since automatic conversion is based on scope, make sure the a supported CoffeeScript package is installed as well. Using [Better CoffeeScript](https://packagecontrol.io/packages/Better%20CoffeeScript) is recommended, though [CoffeeScript](https://packagecontrol.io/packages/CoffeeScript), [IcedCoffeeScript](https://packagecontrol.io/packages/IcedCoffeeScript) and [Mongoose CoffeeScript](https://packagecontrol.io/packages/Mongoose%20CoffeeScript) are also supported.
+**Note:** Since conversion is based on scope, make sure the a supported CoffeeScript package is installed as well. Using [Better CoffeeScript](https://packagecontrol.io/packages/Better%20CoffeeScript) is recommended, though [CoffeeScript](https://packagecontrol.io/packages/CoffeeScript), [IcedCoffeeScript](https://packagecontrol.io/packages/IcedCoffeeScript) and [Mongoose CoffeeScript](https://packagecontrol.io/packages/Mongoose%20CoffeeScript) are also supported.
 
 ### Keyboard Shortcuts
 
 *The following examples all use the macOS shortcuts, for Linux or Windows use <kbd>Ctrl</kbd>+<kbd>Alt</kbd> rather than <kbd>Cmd</kbd>+<kbd>Alt</kbd>.*
 
-Memorizing the keyboard shortcuts for conversion is easy. Just think of <kbd>C</kbd> for CSON and <kbd>J</kbd> for JSON:
+Memorizing the keyboard shortcuts for conversion is easy. Just think of <kbd>C</kbd> for CSON, <kbd>J</kbd> for JSON, and <kbd>X</kbd> for XML:
 
-* CSON to JSON (or C to J): <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>, <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>
-* JSON to CSON (or J to C): <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>, <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>
+Action       | Mnemonic | Shortcut
+-------------|----------|-----------------------------------------------------------
+CSON to JSON | “C to J” | <kbd>Ctrl</kbd>+<kbd>C</kbd>, <kbd>Ctrl</kbd>+<kbd>J</kbd>
+CSON to XML  | “C to X” | <kbd>Ctrl</kbd>+<kbd>C</kbd>, <kbd>Ctrl</kbd>+<kbd>X</kbd>
+JSON to CSON | “J to C” | <kbd>Ctrl</kbd>+<kbd>J</kbd>, <kbd>Ctrl</kbd>+<kbd>C</kbd>
+JSON to XML  | “J to X” | <kbd>Ctrl</kbd>+<kbd>J</kbd>, <kbd>Ctrl</kbd>+<kbd>X</kbd>
+XML to CSON  | “J to C” | <kbd>Ctrl</kbd>+<kbd>X</kbd>, <kbd>Ctrl</kbd>+<kbd>C</kbd>
+XML to JSON  | “J to X” | <kbd>Ctrl</kbd>+<kbd>X</kbd>, <kbd>Ctrl</kbd>+<kbd>J</kbd>
 
 ### Settings
 

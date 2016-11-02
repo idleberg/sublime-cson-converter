@@ -17,15 +17,28 @@
                 "command": "cson_to_json"
               },
               {
-                "caption": "Convert CSON to JSON",
-                "command": "json_to_cson"
+                "caption": "Convert CSON to XML",
+                "command": "cson_to_xml"
               },
               {
                 "caption": "-"
+              },{
+                "caption": "Convert JSON to CSON",
+                "command": "json_to_cson"
               },
               {
-                "command": "toggle_object_notation",
-                  "caption": "Convert: Toggle Object Notation (CSON\u27f7JSON)"
+                "caption": "Convert JSON to XML",
+                "command": "json_to_xml"
+              },
+              {
+                "caption": "-"
+              },{
+                "caption": "Convert XML to CSON",
+                "command": "xml_to_cson"
+              },
+              {
+                "caption": "Convert XML to JSON",
+                "command": "xml_to_json"
               }
             ]
           }

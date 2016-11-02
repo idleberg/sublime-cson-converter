@@ -1,5 +1,5 @@
 import sublime, sublime_plugin
-import cson, json
+import cson, dicttoxml, json, xmltodict
 
 def loadConfig():
     return sublime.load_settings('CSON Converter.sublime-settings');
@@ -22,19 +22,18 @@ class ToggleObjectNotationCommand(sublime_plugin.TextCommand):
 class CsonToJsonCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
-
         scope = self.view.scope_name(self.view.sel()[0].a)
         if "source.json" in scope \
         or scope.startswith('source.sublime'):
             print("CSON Converter: No action required")
             return
 
-        # read data from view
+        # read input from view
         selection = self.view.substr(sublime.Region(0, self.view.size()))
 
-        # interprete and validate data
+        # interprete and validate input
         try:
-            data = cson.loads(selection)
+            input = cson.loads(selection)
         except:
             sublime.error_message("CSON Converter\n\nInvalid CSON, aborting conversion")
             return
@@ -42,9 +41,9 @@ class CsonToJsonCommand(sublime_plugin.TextCommand):
         sort_keys = loadConfig().get("jsonSortKeys") or True
         indent = loadConfig().get("jsonIndent") or 2
 
-        # write converted data to view
+        # write converted input to view
         selection = sublime.Region(0, self.view.size())
-        self.view.replace(edit, selection, json.dumps(data, sort_keys=sort_keys, indent=indent, separators=(',', ': ')))
+        self.view.replace(edit, selection, json.dumps(input, sort_keys=sort_keys, indent=indent, separators=(',', ': ')))
 
         # set syntax to JSON
         if sublime.version() >= "3103":
@@ -52,17 +51,46 @@ class CsonToJsonCommand(sublime_plugin.TextCommand):
         else:
             self.view.set_syntax_file('Packages/JavaScript/JSON.tmLanguage')
 
+# Convert CSON to JSON
+class CsonToXmlCommand(sublime_plugin.TextCommand):
+
+    def run(self, edit):
+        scope = self.view.scope_name(self.view.sel()[0].a)
+        if "source.json" in scope \
+        or scope.startswith('source.sublime'):
+            print("CSON Converter: No action required")
+            return
+
+        # read input from view
+        selection = self.view.substr(sublime.Region(0, self.view.size()))
+
+        # interprete and validate input
+        try:
+            input = cson.loads(selection)
+        except:
+            sublime.error_message("CSON Converter\n\nInvalid CSON, aborting conversion")
+            return
+
+        # write converted input to view
+        selection = sublime.Region(0, self.view.size())
+        self.view.replace(edit, selection, dicttoxml.dicttoxml(input))
+
+        # set syntax to XML
+        if sublime.version() >= "3103":
+            self.view.set_syntax_file('Packages/XML/XML.sublime-syntax')
+        else:
+            self.view.set_syntax_file('Packages/XML/XML.tmLanguage')
+
 # Convert JSON to CSON
 class JsonToCsonCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
-
-        # read data from view
+        # read input from view
         selection = self.view.substr(sublime.Region(0, self.view.size()))
 
-        # interprete and validate data
+        # interprete and validate input
         try:
-            data = json.loads(selection)
+            input = json.loads(selection)
         except:
             sublime.error_message("CSON Converter\n\nInvalid JSON, aborting conversion")
             return
@@ -70,14 +98,91 @@ class JsonToCsonCommand(sublime_plugin.TextCommand):
         sort_keys = loadConfig().get("csonSortKeys") or True
         indent = loadConfig().get("csonIndent") or 2
 
-        # write converted data to view
+        # write converted input to view
         selection = sublime.Region(0, self.view.size())
-        self.view.replace(edit, selection, cson.dumps(data, sort_keys=sort_keys, indent=indent))
+        self.view.replace(edit, selection, cson.dumps(input, sort_keys=sort_keys, indent=indent))
 
-        self.set_coffee()
+        # set syntax to CSON, requires supported CoffeeScript package
+        get_package(self)
 
-    def set_coffee(this):
-        """Set syntax to CSON, if supported CoffeeScript package was found"""
+# Convert JSON to XML
+class JsonToXmlCommand(sublime_plugin.TextCommand):
+
+    def run(self, edit):
+        # read input from view
+        selection = self.view.substr(sublime.Region(0, self.view.size()))
+
+        # interprete and validate input
+        try:
+            input = json.loads(selection)
+        except:
+            sublime.error_message("CSON Converter\n\nInvalid JSON, aborting conversion")
+            return
+
+        output = dicttoxml.dicttoxml(input)
+
+        # write converted input to view
+        selection = sublime.Region(0, self.view.size())
+        self.view.replace(edit, selection, output)
+
+        # set syntax to XML
+        if sublime.version() >= "3103":
+            self.view.set_syntax_file('Packages/XML/XML.sublime-syntax')
+        else:
+            self.view.set_syntax_file('Packages/XML/XML.tmLanguage')
+
+# Convert XML to JSON
+class XmlToJsonCommand(sublime_plugin.TextCommand):
+
+    def run(self, edit):
+        # read input from view
+        selection = self.view.substr(sublime.Region(0, self.view.size()))
+
+        # interprete and validate input
+        try:
+            input = xmltodict.parse(selection)
+        except:
+            sublime.error_message("CSON Converter\n\nInvalid XML, aborting conversion")
+            return
+
+        sort_keys = loadConfig().get("jsonSortKeys") or True
+        indent = loadConfig().get("jsonIndent") or 2
+
+        # write converted input to view
+        selection = sublime.Region(0, self.view.size())
+        self.view.replace(edit, selection, json.dumps(input, sort_keys=sort_keys, indent=indent, separators=(',', ': ')))
+
+        # set syntax to JSON
+        if sublime.version() >= "3103":
+            self.view.set_syntax_file('Packages/JavaScript/JSON.sublime-syntax')
+        else:
+            self.view.set_syntax_file('Packages/JavaScript/JSON.tmLanguage')
+
+# Convert XML to CSON
+class XmlToCsonCommand(sublime_plugin.TextCommand):
+
+    def run(self, edit):
+        # read input from view
+        selection = self.view.substr(sublime.Region(0, self.view.size()))
+
+        # interprete and validate input
+        try:
+            input = xmltodict.parse(selection)
+        except:
+            sublime.error_message("CSON Converter\n\nInvalid XML, aborting conversion")
+            return
+
+        sort_keys = loadConfig().get("csonSortKeys") or True
+        indent = loadConfig().get("csonIndent") or 2
+
+        # write converted input to view
+        selection = sublime.Region(0, self.view.size())
+        self.view.replace(edit, selection, cson.dumps(input, sort_keys=sort_keys, indent=indent))
+
+        # set syntax to CSON, requires supported CoffeeScript package
+        get_package(self)
+
+def get_package(this):
         import os
 
         # package locations

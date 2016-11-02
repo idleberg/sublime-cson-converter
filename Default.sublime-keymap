@@ -1,7 +1,7 @@
 [
   {
     "keys": [
-      "ctrl+alt+c", "ctrl+alt+j"
+      "alt+shift+c", "alt+shift+j"
     ],
     "command": "cson_to_json",
     "context": [
@@ -14,7 +14,20 @@
   },
   {
     "keys": [
-      "ctrl+alt+j", "ctrl+alt+c"
+      "alt+shift+c", "alt+shift+x"
+    ],
+    "command": "cson_to_xml",
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "source.coffee, source.json"
+      }
+    ]
+  },
+  {
+    "keys": [
+      "alt+shift+j", "alt+shift+c"
     ],
     "command": "json_to_cson",
     "context": [
@@ -22,6 +35,45 @@
         "key": "selector",
         "operator": "equal",
         "operand": "source.coffee, source.json"
+      }
+    ]
+  },
+  {
+    "keys": [
+      "alt+shift+j", "alt+shift+x"
+    ],
+    "command": "json_to_xml",
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "source.coffee, source.json"
+      }
+    ]
+  },
+  {
+    "keys": [
+      "alt+shift+x", "alt+shift+c"
+    ],
+    "command": "xml_to_cson",
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.xml"
+      }
+    ]
+  },
+  {
+    "keys": [
+      "alt+shift+x", "alt+shift+j"
+    ],
+    "command": "xml_to_json",
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.xml"
       }
     ]
   }

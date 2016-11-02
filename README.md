@@ -1,4 +1,4 @@
-# CSON Converter
+# Converter
 
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![Package Control](https://packagecontrol.herokuapp.com/downloads/CSON%20Converter.svg?style=flat-square)](https://packagecontrol.io/packages/CSON%20Converter)
@@ -13,7 +13,7 @@ Converts CSON, JSON and XML
 
 1. Make sure you already have [Package Control](https://packagecontrol.io/) installed
 2. Choose *“Install Package”* from the Command Palette (<kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>p</kbd>)
-3. Type *CSON Converter* and press <kbd>Enter</kbd>
+3. Type *Converter* and press <kbd>Enter</kbd>
 4. Repeat steps 2 and 3 to install *“Better CoffeeScript”*
 
 With [auto_upgrade](http://wbond.net/sublime_packages/package_control/settings/) enabled, Package Control will keep all installed packages up-to-date!

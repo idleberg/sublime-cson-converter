@@ -1,26 +1,26 @@
 [
   {
     "command": "cson_to_json",
-    "caption": "Convert: CSON to JSON"
+    "caption": "Converter: CSON to JSON"
   },
   {
     "command": "cson_to_xml",
-    "caption": "Convert: CSON to XML"
+    "caption": "Converter: CSON to XML"
   },
   {
     "command": "json_to_cson",
-    "caption": "Convert: JSON to CSON"
+    "caption": "Converter: JSON to CSON"
   },
   {
     "command": "json_to_xml",
-    "caption": "Convert: JSON to XML"
+    "caption": "Converter: JSON to XML"
   },
   {
     "command": "xml_to_cson",
-    "caption": "Convert: XML to CSON"
+    "caption": "Converter: XML to CSON"
   },
   {
     "command": "xml_to_json",
-    "caption": "Convert: XML to JSON"
+    "caption": "Converter: XML to JSON"
   }
 ]

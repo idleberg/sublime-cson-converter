@@ -9,8 +9,8 @@
         "caption": "Packages",
         "children": [
           {
-            "id": "CSON Converter",
-            "caption": "CSON Converter",
+            "id": "Converter",
+            "caption": "Converter",
             "children": [
               {
                 "caption": "Convert CSON to JSON",
@@ -57,19 +57,19 @@
         "id": "package-settings",
         "children": [
           {
-            "caption": "CSON Converter",
+            "caption": "Converter",
             "children": [
               {
                 "command": "open_file",
                 "args": {
-                  "file": "${packages}/CSON Converter/CSON Converter.sublime-settings"
+                  "file": "${packages}/Converter/Converter.sublime-settings"
                 },
                 "caption": "Settings – Default"
               },
               {
                 "command": "open_file",
                 "args": {
-                  "file": "${packages}/User/CSON Converter.sublime-settings"
+                  "file": "${packages}/User/Converter.sublime-settings"
                 },
                 "caption": "Settings – User"
               },
@@ -79,7 +79,7 @@
               {
                 "command": "open_file",
                 "args": {
-                  "file": "${packages}/CSON Converter/Default.sublime-keymap"
+                  "file": "${packages}/Converter/Default.sublime-keymap"
                 },
                 "caption": "Key Bindings – Default"
               }

@@ -2,7 +2,7 @@ import sublime, sublime_plugin
 import cson, dicttoxml, json, xmltodict
 
 def loadConfig():
-    return sublime.load_settings('CSON Converter.sublime-settings');
+    return sublime.load_settings('Converter.sublime-settings');
 
 # Automatic conversion
 class ToggleObjectNotationCommand(sublime_plugin.TextCommand):
@@ -16,7 +16,7 @@ class ToggleObjectNotationCommand(sublime_plugin.TextCommand):
         elif "source.coffee" in scope:
             self.view.run_command('cson_to_json')
         else:
-            sublime.error_message("CSON Converter\n\nUnsupported scope, can't toggle object notation automatically")
+            sublime.error_message("Converter\n\nUnsupported scope, can't toggle object notation automatically")
 
 # Convert CSON to JSON
 class CsonToJsonCommand(sublime_plugin.TextCommand):
@@ -25,7 +25,7 @@ class CsonToJsonCommand(sublime_plugin.TextCommand):
         scope = self.view.scope_name(self.view.sel()[0].a)
         if "source.json" in scope \
         or scope.startswith('source.sublime'):
-            print("CSON Converter: No action required")
+            print("Converter: No action required")
             return
 
         # read input from view
@@ -35,7 +35,7 @@ class CsonToJsonCommand(sublime_plugin.TextCommand):
         try:
             input = cson.loads(selection)
         except:
-            sublime.error_message("CSON Converter\n\nInvalid CSON, aborting conversion")
+            sublime.error_message("Converter\n\nInvalid CSON, aborting conversion")
             return
 
         sort_keys = loadConfig().get("jsonSortKeys") or True
@@ -58,7 +58,7 @@ class CsonToXmlCommand(sublime_plugin.TextCommand):
         scope = self.view.scope_name(self.view.sel()[0].a)
         if "source.json" in scope \
         or scope.startswith('source.sublime'):
-            print("CSON Converter: No action required")
+            print("Converter: No action required")
             return
 
         # read input from view
@@ -68,7 +68,7 @@ class CsonToXmlCommand(sublime_plugin.TextCommand):
         try:
             input = cson.loads(selection)
         except:
-            sublime.error_message("CSON Converter\n\nInvalid CSON, aborting conversion")
+            sublime.error_message("Converter\n\nInvalid CSON, aborting conversion")
             return
 
         # write converted input to view
@@ -92,7 +92,7 @@ class JsonToCsonCommand(sublime_plugin.TextCommand):
         try:
             input = json.loads(selection)
         except:
-            sublime.error_message("CSON Converter\n\nInvalid JSON, aborting conversion")
+            sublime.error_message("Converter\n\nInvalid JSON, aborting conversion")
             return
 
         sort_keys = loadConfig().get("csonSortKeys") or True
@@ -116,7 +116,7 @@ class JsonToXmlCommand(sublime_plugin.TextCommand):
         try:
             input = json.loads(selection)
         except:
-            sublime.error_message("CSON Converter\n\nInvalid JSON, aborting conversion")
+            sublime.error_message("Converter\n\nInvalid JSON, aborting conversion")
             return
 
         output = dicttoxml.dicttoxml(input)
@@ -142,7 +142,7 @@ class XmlToJsonCommand(sublime_plugin.TextCommand):
         try:
             input = xmltodict.parse(selection)
         except:
-            sublime.error_message("CSON Converter\n\nInvalid XML, aborting conversion")
+            sublime.error_message("Converter\n\nInvalid XML, aborting conversion")
             return
 
         sort_keys = loadConfig().get("jsonSortKeys") or True
@@ -169,7 +169,7 @@ class XmlToCsonCommand(sublime_plugin.TextCommand):
         try:
             input = xmltodict.parse(selection)
         except:
-            sublime.error_message("CSON Converter\n\nInvalid XML, aborting conversion")
+            sublime.error_message("Converter\n\nInvalid XML, aborting conversion")
             return
 
         sort_keys = loadConfig().get("csonSortKeys") or True

@@ -1,4 +1,4 @@
-# Converter
+# CSON Converter
 
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![Package Control](https://packagecontrol.herokuapp.com/downloads/CSON%20Converter.svg?style=flat-square)](https://packagecontrol.io/packages/CSON%20Converter)
